@@ -11,12 +11,11 @@ INTEGRAÇÃO TELETOOLS:
 - O link do Telegram é gerado pelo TeleTools ao clicar. Confirme no painel do projeto
   que o destino do canal está configurado antes de publicar.
 
-COMO HOSPEDAR NO CPANEL:
-1. Acesse Gerenciador de Arquivos.
-2. Entre na pasta public_html do domínio (ou pasta do subdomínio).
-3. Envie index.html e a pasta assets mantendo a mesma estrutura.
-4. Para publicar num slug (ex.: /mago), crie uma pasta mago dentro de public_html e envie os arquivos nessa pasta.
-5. Acesse o endereço publicado. Se desejar, configure SSL/HTTPS.
+PUBLICAÇÃO:
+- A LP está hospedada no Dokploy em https://cap.omagocas.online/.
+- O Dokploy usa este repositório e a branch main como fonte.
+- Um push na main aciona automaticamente o deploy pelo webhook do GitHub.
+- Confira o resultado na aba Deployments da aplicação mago-lp no Dokploy.
 
 Página estática responsiva. O script externo do TeleTools faz rastreamento
 e gera o link de convite do canal.

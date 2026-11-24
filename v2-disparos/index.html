@@ -123,5 +123,22 @@
       </div>
     </div>
   </footer>
+  <script>
+    /* Cada braço do disparo chega com a própria btag no link (?btag=CODIGO). Ela vai no botão da casa e dá nome à
+       origem no TeleTools e à campanha na casa. Sem btag, ou com btag inválida, fica tudo como está no HTML acima.
+       Roda antes do embed.js do TeleTools, que é "defer". */
+    (function(){
+      var bracos=new Map([['ive75s7j','sem-bonus'],['rauqc8kj','mago300'],['2czkmtje','20-rodadas']]);
+      var btag=(new URLSearchParams(location.search).get('btag')||'').trim().toLowerCase();
+      if(!/^[a-z0-9]{4,32}$/.test(btag))return;
+      var origem='v2-disparos-'+(bracos.get(btag)||btag);
+      document.querySelectorAll('[data-tg-utm]').forEach(function(el){el.setAttribute('data-tg-utm',origem)});
+      var casa=document.querySelector('.cta-casa');
+      var url=new URL(casa.href);
+      url.searchParams.set('btag',btag);
+      url.searchParams.set('utm_campaign',origem);
+      casa.href=url.href;
+    })();
+  </script>
 </body>
 </html>
